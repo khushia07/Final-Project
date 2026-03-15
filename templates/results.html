@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="results-container">
+
+        <h2>Playlist Generated!</h2>
+
+        {% if tracks|length == 0 %}
+            <p>No results found.</p>
+
+        {% else %}
+            <ul>
+            {% for track in tracks %}
+                <li>
+                    <a href="{{ track.url }}" target="blank">{{ track.name }}</a>
+                    <p>{{ track.artist }}</p>
+                </li>
+            
+            {% endfor %}
+
+            </ul>
+        
+        {% endif %}
+
+    </div>
+
+{% endblock %}

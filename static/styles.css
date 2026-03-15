@@ -1,0 +1,64 @@
+body {
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+    color: #062809;
+    background-color: #8CB784
+}
+
+h1 {
+    color: #b1d7b6;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+
+/* user input fields */
+
+.search-form input[type="date"], 
+.search-form input[type="text"],
+.search-form input[type="number"] {
+    padding: 20px;
+    border-radius: 40px;
+    font-size: 20px;
+    background-color: #C6EDB5;
+    color: #1D271E;
+    font-family: Tahoma, sans-serif;
+    border: none;
+    outline: none;
+}
+
+.search-form input[type="date"]:hover, 
+.search-form input[type="text"]:hover,
+.search-form input[type="number"]:hover {
+    background-color: #cdeebf;
+    color: #334334;
+    border: none;
+    outline: 1px solid #334334;
+}
+
+/* submit button */
+.search-form input[type="submit"] {
+    background-color: #4B7539;
+    color: #cee7c4;
+    padding: 10px 20px;
+    font-size: 20px;
+    box-shadow: 0 0 20px rgba(27, 59, 28, 0.8);
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #3c5e2e
+}
+
+
+
+/* questions/text */
+.search-form p {
+    font-family: Tahoma, sans-serif;
+    color: #1D271E;
+    font-size: 20px;
+}
+
+
+

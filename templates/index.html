@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action = "/" method ="post" class="search-form">
+
+    <p>
+        <p>When would you like to listen to your Moodify experience?</p>
+        <input type="date" id="date" name="date" required>
+    </p>
+
+    <p>
+        <p>Where is your Moodify experience?</p>
+        <input type="text" id="location" name="location" required>
+    </p>
+
+    <p>
+        <p>How long would you like your Moodify experience?</p>
+        <input type = "number" id="length" name="length" value="10" required>
+    </p>
+
+    <p>
+        <input type="submit" value="generate playlist!">
+    </p>
+
+</form>
+
+{% endblock %}

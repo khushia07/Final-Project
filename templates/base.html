@@ -1,0 +1,26 @@
+<!-- Base template -->
+ <!DOCTYPE html>
+
+ <html>
+
+ <head>
+    <title>Moodify Spotify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+ </head>
+
+ <body>
+    <img src="{{ url_for('static', filename='moodifyspotify.png') }}" alt="Moodify Spotify" width="600" height="200">
+
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>Data from APIs: <a href = https://developer.spotify.com/documentation/web-api>Spotify</a> and
+            <a href = https://openweathermap.org/api>OpenWeather</a>
+        </p>
+    </footer>
+
+ </body>
+
+ </html>
