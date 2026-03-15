@@ -123,22 +123,26 @@ def get_spotify_tracks(genre, limit, token):
     headers = {"Authorization": f"Bearer {token['access_token']}"}
 
 
-
     resp = requests.get(url, headers=headers, params=params)
     resp.raise_for_status()
     data = resp.json()
 
+    # if tracks exists, extract that data and start appending relevant 
+    # information to a new list called tracks, and return that list
     if "tracks" in data:
         tracklist = data["tracks"]
+        tracks = []
+        for item in tracklist:
+            tracks.append({
+                "name": item["name"],
+                "artist": item["artists"][0]["name"],
+                "url": item["external_urls"]["spotify"]
+        })   
+        return tracks
+
+    # otherwise return an empty list
     else:
         tracklist = []
+        return tracklist
 
-    tracks = []
-    for item in tracklist:
-        tracks.append({
-            "name": item["name"],
-            "artist": item["artists"][0]["name"],
-            "url": item["external_urls"]["spotify"]
-        })
 
-    return tracks
