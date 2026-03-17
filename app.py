@@ -36,7 +36,7 @@ def login():
         client_id,
         client_secret,
         scope=scope,
-        redirect_uri="http://127.0.0.1:5000/callback"
+        redirect_uri="https://agrawkhu.pythonanywhere.com/callback"
     )
 
     authorization_endpoint = "https://accounts.spotify.com/authorize"
@@ -57,7 +57,7 @@ def callback():
         client_id,
         client_secret,
         scope = scope,
-        redirect_uri="http://127.0.0.1:5000/callback"
+        redirect_uri="https://agrawkhu.pythonanywhere.com/callback"
     )
 
     token_endpoint = "https://accounts.spotify.com/api/token"
