@@ -51,7 +51,7 @@ def login():
 @app.route("/callback")
 def callback():
 
-    scope = "user-read-private user-read-email user-top-read"
+    scope = "playlist-read-private"
     
     client = OAuth2Session(
         client_id,

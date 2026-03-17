@@ -2,24 +2,28 @@
 
 {% block content %}
 
-    <div class="results-container">
+    <div class="results-page">
 
-        <h2>Playlist Generated!</h2>
+        <h2>playlist generated!</h2>
+        <h3>some {{ genre }} for {{ weather.lower() }} weather</h3>
 
         {% if tracks|length == 0 %}
             <p>No results found.</p>
 
         {% else %}
-            <ul>
+
             {% for track in tracks %}
-                <li>
-                    <a href="{{ track.url }}" target="blank">{{ track.name }}</a>
-                    <p>{{ track.artist }}</p>
-                </li>
+
+            <div class = "track-card">
+
+                <img src="{{ track.image }}" alt="album art" class="album-art">
+                <p>artist: {{ track.artist }}</p>
+                <p>song: <a href="{{ track.url }}" target="blank">{{ track.name }}</a></p>
+                <br>
             
+            </div>
             {% endfor %}
 
-            </ul>
         
         {% endif %}
 

@@ -86,37 +86,36 @@ def map_weather_to_genre(weather_data):
 
     weather_data = weather_data.strip()
     if weather_data in ("Thunderstorm", "Drizzle", "Rain"):
-        genre = "chill"
+        genre = "chill songs"
     
     elif weather_data == "Snow":
-        genre = "chill"
+        genre = "acoustic songs"
 
     elif weather_data in ("Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash"):
-        genre = "chill"
+        genre = "ambient songs"
 
     elif weather_data in ("Squall", "Tornado"):
-        genre = "chill"
+        genre = "rock songs"
 
     elif weather_data == "Clear":
-        genre = "chill"
+        genre = "pop songs"
     
     elif weather_data == "Clouds":
-        genre = "chill"
+        genre = "indie songs"
     
     else:
-        genre = "chill"
-
-    genre = "pop"
+        genre = "pop songs"
 
     return genre
 
 def get_spotify_tracks(genre, limit, token):
 
     # calls Spotify API
-    url = "https://api.spotify.com/v1/recommendations"
+    url = "https://api.spotify.com/v1/search"
 
     params = {
-        "seed_genres": genre,
+        "q": genre,
+        "type": "track",
         "limit": limit
     }
 
@@ -130,14 +129,30 @@ def get_spotify_tracks(genre, limit, token):
     # if tracks exists, extract that data and start appending relevant 
     # information to a new list called tracks, and return that list
     if "tracks" in data:
-        tracklist = data["tracks"]
+
+        tracklist = data["tracks"]["items"]
         tracks = []
+
         for item in tracklist:
+            # 1. safely get the album images list
+            if "album" in item and "images" in item["album"]:
+                images = item["album"]["images"]
+            else:
+                images = []
+
+            # 2. safely pick the first image if it exists
+            if len(images) > 0:
+                image_url = images[0]["url"]
+            else:
+                image_url = ""
+
+            # 3. now build the track dictionary
             tracks.append({
                 "name": item["name"],
                 "artist": item["artists"][0]["name"],
-                "url": item["external_urls"]["spotify"]
-        })   
+                "url": item["external_urls"]["spotify"],
+                "image": image_url
+            })
         return tracks
 
     # otherwise return an empty list
