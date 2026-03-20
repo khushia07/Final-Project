@@ -1,0 +1,17 @@
+For the final project, I used AI to primarily debug issues and navigate problems I was
+having with the APIs I was working with.
+
+This included when I had written all of my functions, and there were no errors, yet
+there were no tracks being listed on the results page, leading to me to believe that 
+there was a serious bug in the program. However, after copy-pasting my code into AI, I was
+led to believe that I was not inputting the correct parameters. This was also not true.
+The issue ended up being that the API endpoint was no longer available through Spotify,
+which meant I needed to figure out a different way to extract tracks in Spotify.
+
+I also used AI to double check my logic in both app.py and functions.py. While I mainly
+referenced HW5 and HW6 to write the logic regarding calling APIs, building URLs, creating a
+Flask app, etc, there were points where I was not sure what the syntax looked like.
+
+I also used AI to understand the Authentication required by Spotify in order to use it's
+endpoints. I would ask AI the purpose of the Authentication, why it was required, and
+where to implement it. 
